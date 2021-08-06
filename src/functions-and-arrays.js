@@ -1,48 +1,212 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  }
+  if (a < b) {
+    return b;
+  } else {
+    return a;
+  }
+}
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+//const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
-
-
+function findLongestWord(words) {
+  if (words == '') {
+    return null;
+  }
+  for (let o = 0; o < words.length; o++) {
+    for (let i = 0; i < words.length - 1; i++) {
+      if (words[i].length < words[i + 1].length) {
+        let zz = words[i];
+        let yy = words[i + 1];
+        words[i] = yy;
+        words[i + 1] = zz;
+      }
+    }
+  }
+  return words[0];
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  let totalsum = 0;
+  switch (numbers.length > 0) {
+    case true:
+      for (let i = 0; i < numbers.length; i++) {
+        totalsum = totalsum + numbers[i];
+      }
+      return totalsum;
+      break;
+    case false:
+      return 0;
+      break;
+  }
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(numbers) {
+  let totalsum = 0;
+  switch (numbers.length > 0) {
+    case true:
+      for (let i = 0; i < numbers.length; i++) {
+        switch (typeof numbers[i] == 'string') {
+          case true:
+            totalsum = totalsum + numbers[i].length;
+            break;
+          case false:
+            switch (typeof numbers[i] == 'boolean') {
+              case true:
+                switch (numbers[i]) {
+                  case true:
+                    totalsum = totalsum + 1;
+                    break;
+                  case false:
+                    break;
+                }
+                break;
+              case false:
+                switch (typeof numbers[i] == 'number') {
+                  case true:
+                    totalsum = totalsum + numbers[i];
+                    break;
+                  case false:
+                    throw new Error(`Unsupported data type sir or ma'am`);
+                    break;
+                }
+                break;
+            }
+            break;
+        }
+      }
+      return totalsum;
+      break;
+    case false:
+      return 0;
+      break;
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(numbers) {
+  let totalsum = 0;
+  switch (numbers.length > 0) {
+    case true:
+      for (let i = 0; i < numbers.length; i++) {
+        totalsum = totalsum + numbers[i];
+      }
+      let finalaverage = totalsum / numbers.length;
+      return finalaverage;
+      break;
+    case false:
+      return null;
+      break;
+  }
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(numbers) {
+  let totalsum = 0;
+  switch (numbers.length > 0) {
+    case true:
+      for (let i = 0; i < numbers.length; i++) {
+        switch (typeof numbers[i] == 'string') {
+          case true:
+            totalsum = totalsum + numbers[i].length;
+            break;
+          case false:
+            switch (typeof numbers[i] == 'boolean') {
+              case true:
+                switch (numbers[i]) {
+                  case true:
+                    totalsum = totalsum + 1;
+                    break;
+                  case false:
+                    break;
+                }
+                break;
+              case false:
+                switch (typeof numbers[i] == 'number') {
+                  case true:
+                    totalsum = totalsum + numbers[i];
+                    break;
+                  case false:
+                    throw new Error(`Unsupported data type sir or ma'am`);
+                    break;
+                }
+                break;
+            }
+            break;
+        }
+      }
+      let finalaverage = totalsum / numbers.length;
+      return finalaverage;
+      break;
+    case false:
+      return null;
+      break;
+  }
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(numbers) {
+  let totalsum = 0;
+  switch (numbers.length > 0) {
+    case true:
+      for (let i = 0; i < numbers.length; i++) {
+        switch (typeof numbers[i] == 'string') {
+          case true:
+            totalsum = totalsum + numbers[i].length;
+            break;
+          case false:
+            switch (typeof numbers[i] == 'boolean') {
+              case true:
+                switch (numbers[i]) {
+                  case true:
+                    totalsum = totalsum + 1;
+                    break;
+                  case false:
+                    break;
+                }
+                break;
+              case false:
+                switch (typeof numbers[i] == 'number') {
+                  case true:
+                    totalsum = totalsum + numbers[i];
+                    break;
+                  case false:
+                    throw new Error(`Unsupported data type sir or ma'am`);
+                    break;
+                }
+                break;
+            }
+            break;
+        }
+      }
+      let finalaverage = Math.round((totalsum / numbers.length) * 100) / 100;
+      return finalaverage;
+      break;
+    case false:
+      return null;
+      break;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
-  'poison',
   'contagious',
   'simple',
+  'poison',
   'bring',
   'sharp',
   'playground',
@@ -52,16 +216,46 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
-
-
+function uniquifyArray(arrayWithDuplicates) {
+  switch (arrayWithDuplicates.length > 0) {
+    case true:
+      for (let i = 0; i < arrayWithDuplicates.length; i++) {
+        console.log(`i = ${i}`);
+        for (let o = 0; o < arrayWithDuplicates.length; o++) {
+          console.log(`o = ${o}`);
+          if (i != o && arrayWithDuplicates[i] == arrayWithDuplicates[o]) {
+            console.log(`arrayWithDuplicates[i] = ${arrayWithDuplicates[i]}`);
+            console.log(`arrayWithDuplicates[o] = ${arrayWithDuplicates[o]}`);
+            arrayWithDuplicates.splice(o, 1);
+          }
+        }
+      }
+      return arrayWithDuplicates;
+      break;
+    case false:
+      return null;
+      break;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(arrayFind, wordToCheck) {
+  switch (arrayFind.length > 0) {
+    case true:
+      for (let i = 0; i < arrayFind.length; i++) {
+        if (arrayFind[i] == wordToCheck) {
+          return true;
+        }
+      }
+      return false;
+      break;
+    case false:
+      return null;
+      break;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +272,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
-
+function howManyTimes(arrayForCount, wordToCheck) {
+  let counter = 0;
+  for (let i = 0; i < arrayForCount.length; i++) {
+    if (arrayForCount[i] == wordToCheck) {
+      counter++;
+    }
+  }
+  return counter;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,10 +306,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
-
-
-
+function greatestProduct(matrixToCheck) {
+  let productToCompare = 0;
+  let maximunFound = 0;
+  for (let i = 0; i < matrixToCheck.length; i++) {
+    for (let o = 0; o < matrixToCheck[i].length; o++) {
+      if (o < matrixToCheck[i].length - 3) {
+        productToCompare =
+          matrixToCheck[i][o] * matrixToCheck[i][o + 1] * matrixToCheck[i][o + 2] * matrixToCheck[o + 3];
+        if (productToCompare > maximunFound) {
+          maximunFound = productToCompare;
+        }
+      }
+      if (i < matrixToCheck.length - 3) {
+        productToCompare =
+          matrixToCheck[i][o] * matrixToCheck[i + 1][o] * matrixToCheck[i + 2][o] * matrixToCheck[i + 3][o];
+        if (productToCompare > maximunFound) {
+          maximunFound = productToCompare;
+        }
+      }
+    }
+  }
+  return maximunFound;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
